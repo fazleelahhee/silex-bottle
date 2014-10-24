@@ -5,6 +5,7 @@ namespace app\Config;
 require_once 'autoload.php';
 
 use Silex;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -37,7 +38,6 @@ class Bootstrap
         $commitHash = $commitId = '';
         if (php_sapi_name() != 'cli') {
             $lastCommit = exec('git rev-parse HEAD');
-
             $commitHash = $lastCommit;
             $commitId = substr($lastCommit, -6);
         }
@@ -50,11 +50,12 @@ class Bootstrap
 
     public function loadInstructors()
     {
+
         $instructors = [
             new \Topikito\Acme\Config\Instructor($this->_app)
         ];
-
         foreach ($instructors as $instructor) {
+            echo
             /**
              * @var $instructor \app\config\Bridge\BaseInstructor
              */
@@ -90,7 +91,6 @@ class Bootstrap
     {
         $this->loadMiddleware();
         $this->loadInstructors();
-
         return $this->getApplication();
     }
 
@@ -99,7 +99,9 @@ class Bootstrap
 /**
  * Define application environment
  */
+
 defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 
 $app = new Bootstrap(APPLICATION_ENV);
 return $app->ignition();
+

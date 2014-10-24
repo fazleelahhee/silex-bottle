@@ -7,17 +7,17 @@ use Silex\Application;
 use \Topikito\Acme\Controller;
 
 /**
- * Class Home
+ * Class HelloWorld
  *
  * @package Topikito\Acme\Config\Route
  */
-class Home extends Router
+class HelloWorld extends Router
 {
 
     public function load()
     {
-        $this->_app->match('/hello-world', function () {
-                $controller = new Controller\HelloWorld($this->_app);
+        $this->_app->match('/', function () {
+                $controller = new Controller\Home($this->_app);
                 return $controller->index();
             });
     }

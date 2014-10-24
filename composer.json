@@ -10,13 +10,16 @@
     "require": {
         "twig/twig": "*",
         "silex/silex": "1.*",
-        "doctrine/dbal": "*",
+        "doctrine/dbal": "2.2.*",
         "monolog/monolog": "*",
         "doctrine/common": "*",
         "swiftmailer/swiftmailer": "5.*",
         "ruflin/elastica": "*",
         "mandrill/mandrill": "1.*",
-        "tedivm/jshrink": "*"
+        "tedivm/jshrink": "*",
+        "symfony/security": "~2.3",
+        "symfony/doctrine-bridge": "2.6.*@dev",
+        "symfony/translation": "*"
     },
     "require-dev": {
         "phpmd/phpmd" : "2.0.*",

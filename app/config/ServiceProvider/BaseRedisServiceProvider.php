@@ -4,7 +4,7 @@ namespace app\Config\ServiceProvider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use \Redis;
+//use \Redis;
 
 /**
  * Class BaseRedisProvider

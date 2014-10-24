@@ -21,7 +21,8 @@ class Instructor extends BaseInstructor
     public function prepareRoutes()
     {
         $routes = [
-            new Config\Route\Home($this->_app)
+            new Config\Route\Home($this->_app),
+            new Config\Route\HelloWorld($this->_app)
         ];
 
         $this->_addRoutes($routes);
@@ -38,7 +39,7 @@ class Instructor extends BaseInstructor
             new Config\ServiceLoader\SecurityServiceLoader($this->_app),
             new Config\ServiceLoader\MonologServiceLoader($this->_app),
             new Config\ServiceLoader\WebProfilerServiceLoader($this->_app),
-            new Config\ServiceLoader\RedisServiceLoader($this->_app),
+            //new Config\ServiceLoader\RedisServiceLoader($this->_app),
             new Config\ServiceLoader\ElasticSearchServiceLoader($this->_app)
         ];
 

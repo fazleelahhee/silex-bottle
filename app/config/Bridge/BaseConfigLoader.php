@@ -71,18 +71,18 @@ class BaseConfigLoader implements Loadable
     {
         $configKey = 'app:config';
         $configTtl = '10'; //seconds
-
-        $redis = new \Redis();
-        $redis->pconnect('127.0.0.1', 6379);
-        $redis->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
-
-        $config = $redis->get($configKey);
-        if (!$config) {
-            $config = parse_ini_file($this->_getConfigFileRoute(), true);
-            $config = $this->_mergeConfigs($config['common'], $config[$this->_env]);
-
-            $redis->setex($configKey, $configTtl, $config);
-        }
+        $config = false;
+//        $redis = new \Redis();
+//        $redis->pconnect('127.0.0.1', 6379);
+//        $redis->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
+//
+//        $config = $redis->get($configKey);
+//        if (!$config) {
+//            $config = parse_ini_file($this->_getConfigFileRoute(), true);
+//            $config = $this->_mergeConfigs($config['common'], $config[$this->_env]);
+//
+//            $redis->setex($configKey, $configTtl, $config);
+//        }
 
         return $config;
     }

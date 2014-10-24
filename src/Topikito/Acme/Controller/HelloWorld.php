@@ -8,11 +8,11 @@ use Topikito\Acme\Sal;
 use Silex\Application;
 
 /**
- * Class Home
+ * Class HelloWorld
  *
  * @package Topikito\Acme\Controller
  */
-class Home extends Core\BaseController
+class HelloWorld extends Core\BaseController
 {
 
     /**
@@ -32,7 +32,7 @@ class Home extends Core\BaseController
      */
     public function index()
     {
-        return $this->view->render('Home/index.html.twig');
+        return $this->view->render('Hello-world/index.html.twig');
     }
 
 }

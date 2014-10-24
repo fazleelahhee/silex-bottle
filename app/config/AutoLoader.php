@@ -38,12 +38,14 @@ class Autoloader
         $dirName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
         $dirName = $this->_root . DIRECTORY_SEPARATOR . $dirName;
 
+
         if (file_exists($dirName)) {
             $result = require_once $dirName;
         } else {
+            var_dump($dirName);
+            die();
             $result = false;
         }
-
         return $result;
     }
 
